@@ -4,7 +4,7 @@ const controller = require('../controllers/controllers');
 
 module.exports = function() {
     router.get('/', controller.landing)
-    router.post('/', controller.landingPost)
+   
 
     return router;
 } 

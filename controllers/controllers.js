@@ -38,7 +38,7 @@ exports.landing = (req, res) => {
 
             }
 
-           // console.log(gallery);
+           
             res.render('index', {
                 title: 'AstroBext - CrissMaldonadoH',
                 h1: data.title,
@@ -49,38 +49,4 @@ exports.landing = (req, res) => {
         })
     }
 
-}
-
-exports.landingPost = (req, res) => {
-    console.log(req.body)
-    
-    let api = `${url}planetary/apod?${key}`;
-    
-    fetch(api)
-    .then(response => response.json())
-    .then(data => {
-
-        test(data)
-
-    })
-    .catch(err => {
-        console.log(err);
-    })
-
-    function test(data){
-        //console.log(data);
-
-        let apiTest = `${url}planetary/apod?${key}`;
-        fetch(apiTest)
-        .then(response => response.json())
-        .then(dataTest => {
-            res.render('index', {
-                title: dataTest.copyright,
-                h1: data.title,
-                explanation: dataTest.explanation,
-                picToday: data.url
-            });
-        })
-    }
-    
 }
